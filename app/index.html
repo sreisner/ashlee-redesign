@@ -1,0 +1,22 @@
+<html ng-app="App">
+  <head>
+  </head>
+  <body ng-controller="AppController as vm">
+    <div class="container">
+      <app-nav-desktop ng-if="vm.isDesktop()"></app-nav-desktop>
+      <app-nav-mobile-landing ng-if="vm.isMobile() && vm.isLanding()"></app-nav-mobile-landing>
+      <app-nav-mobile-scrolled ng-if="vm.isMobile() && !vm.isLanding()"></app-nav-mobile-scrolled>
+      <gallery></gallery>
+      <about></about>
+    </div>
+
+    <script src="../node_modules/angular/angular.min.js"></script>
+    <!-- Root app -->
+    <script src="./dist/app.min.js"></script>
+    <script src="./dist/app.values.min.js"></script>
+    <script src="./dist/app.controller.min.js"></script>
+
+    <!-- Core -->
+    <script src="./dist/core/services/windowService.min.js"></script>
+  </body>
+</html>
