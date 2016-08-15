@@ -1,0 +1,58 @@
+doctype html
+html(ng-app="App")
+  head
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet", href="styles/font-awesome/css/font-awesome.min.css")
+    link(rel="stylesheet", href="styles/site.css")
+    link(rel="stylesheet", href="style.min.css")
+  body(ng-controller="AppController as vm" resize-digest)
+    image-modal
+    div(class="page-container")
+      nav-desktop(ng-if="isLarge()")
+      nav-mobile-landing(ng-if="isMedium() || isSmall()")
+      nav-mobile-scrolled(ng-if="isSmall() && !isLanding()")
+      div(ng-view, id="content")
+      
+    <!-- JQuery -->
+    script(src="jquery/dist/jquery.min.js")
+
+    <!-- Bootstrap -->
+    script(src="js/bootstrap/modal.js")
+    <!-- Angular -->
+    script(src="angular/angular.min.js")
+    script(src="angular-route/angular-route.min.js")
+
+    <!-- Root app -->
+    script(src="app.min.js")
+    script(src="app.config.min.js")
+    script(src="app.values.min.js")
+    script(src="app.controller.min.js")
+
+    <!-- Core Services -->
+    script(src="core/services/window.service.min.js")
+    script(src="core/services/api.service.min.js")
+    script(src="core/services/cloudinary.service.min.js")
+
+    <!-- Core Directives -->
+    script(src="core/directives/resize/resize.directive.min.js")
+    script(src="core/directives/divider/divider.directive.min.js")
+
+    <!-- Gallery -->
+    script(src="gallery/gallery.controller.min.js")
+    script(src="gallery/gallery.directive.min.js")
+    script(src="gallery/imagePreview/imagePreview.controller.min.js")
+    script(src="gallery/imagePreview/imagePreview.directive.min.js")
+    
+    <!-- About -->
+    script(src="about/about.controller.min.js")
+    script(src="about/about.directive.min.js")
+
+    <!-- Nav -->
+    script(src="nav/desktop/navDesktop.controller.min.js")
+    script(src="nav/desktop/navDesktop.directive.min.js")
+    script(src="nav/mobile_landing/landingLink.directive.min.js")
+    script(src="nav/mobile_landing/navMobileLanding.directive.min.js")
+
+    <!-- Image Modal -->
+    script(src="imageModal/imageModal.controller.min.js")
+    script(src="imageModal/imageModal.directive.min.js")

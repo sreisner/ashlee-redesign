@@ -1,0 +1,41 @@
+<div id="image-modal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div ng-if="!isLarge()" class="top-section">
+          <div class="segment" ng-click="vm.previous()">
+            <i class="fa fa-2x fa-chevron-left" aria-hidden="true"></i>
+          </div>
+          <div class="segment" ng-click="vm.next()">
+            <i class="fa fa-2x fa-chevron-right" aria-hidden="true"></i>
+          </div>
+          <div class="segment mobile-close" data-dismiss="modal">
+            <i class="fa fa-2x fa-times" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="left-section">
+          <div class="left-container">
+            <div class="title row">{{current.title}}</div>
+            <div class="row">{{current.medium}}</div>
+            <div class="row" ng-if="vm.hasDimensions(current)">{{current.width}} x {{current.height}}</div>
+            <div class="row" ng-if="!vm.hasDimensions(current)">&nbsp;</div>
+          </div>
+        </div>
+        <div ng-if="isLarge()" class="right-section">
+          <div class="segment" ng-click="vm.previous()">
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+          </div>
+          <div class="segment" ng-click="vm.next()">
+            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+          </div>
+          <div class="segment" data-dismiss="modal">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <img ng-src="{{vm.getFullUrl(current.image.url)}}">
+      </div>
+    </div>
+  </div>
+</div>

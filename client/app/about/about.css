@@ -1,0 +1,114 @@
+.about .about-me {
+  font-family: 'Poiret One';
+  font-weight: lighter;
+  color: #EEE;
+}
+
+.about .left {
+  position: relative;
+  margin: 0 25px 25px 25px;
+}
+
+.about .left .profile-picture {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 100%;
+  border-radius: 3px;
+}
+
+.about .about-me {
+  font-size: 2.5rem;
+  line-height: 1.5em;
+}
+
+.about .social {
+  position: relative;
+  padding: 25px 0;
+  text-align: center;
+}
+
+.about .social .follow {
+  font-size: 4rem;
+  padding-bottom: 25px;
+  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 100;
+  color: #FFF;
+}
+
+.about .social .links {
+  text-align: center;
+}
+
+.about .social .links a {
+  color: #CCC;
+  margin: 0 25px;
+}
+
+.about .social .links a img {
+  position: absolute;
+  transform: translateX(-50%);
+  width: 3em;
+}
+
+@media (min-width: 1200px) {
+  .about {
+    display: flex;
+  }
+
+  .about .left {
+    width: 33%;
+    flex-shrink: 0;
+  }
+
+  .about .left .profile-picture {
+    max-height: 500px;
+  }
+
+  .about .about-me {
+    margin: 0px 20px 20px 20px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .about {
+    min-height: 100vh;
+  }
+
+  .about .social {
+    margin-bottom: 25px;
+  }
+
+  @media (min-width: 600px) {
+    .about .left .profile-picture {
+      max-height: 400px;
+    }
+
+    .about .about-me {
+      margin: 0px 50px 50px 50px;
+    }
+  }
+
+  @media (max-width: 599px) {
+    .about {
+      min-height: 100vh;
+    }
+
+    .about .left .profile-picture {
+      width: 100%;
+    }
+
+    .about .about-me {
+      margin: 0px 10px 10px 10px;
+      font-size: 1.5rem;
+    }
+
+    .about .social .links a img {
+      width: 2em;
+    }
+
+    .about .social .links i {
+      font-size: 2em;
+    }
+  }
+}
