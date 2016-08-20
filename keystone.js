@@ -5,8 +5,6 @@ require('dotenv').load();
 // Require keystone
 var keystone = require('keystone');
 
-var secrets = require('./secrets');
-
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
@@ -29,8 +27,9 @@ keystone.init({
 	'session': true,
 	'auth': true,
 	'user model': 'User',
+  'mongo': process.env.MONGODB_URI || 'mongodb://localhost:27017/ashlee-noel-design-portfolio',
 
-  'cloudinary config': secrets.CLOUDINARY
+  'cloudinary config': process.env.CLOUDINARY_SECRET
 });
 
 // Load your project's Models
