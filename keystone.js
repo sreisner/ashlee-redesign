@@ -18,7 +18,7 @@ keystone.init({
   'static': [
     'public',
     'client/dist',
-    'client/node_modules'],
+    'node_modules'],
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'jade',
