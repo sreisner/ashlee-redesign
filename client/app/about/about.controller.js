@@ -9,7 +9,7 @@
       function(apiService, cloudinaryService, scaledWidth) {
         this.getCompressedImageUrl = function() {
           if(this.about) {
-            var url = this.about.image.url;
+            var url = this.about.image.secure_url;
             return cloudinaryService.getScaledWidthUrl(url, scaledWidth.ABOUT);
           } else {
             return '';
