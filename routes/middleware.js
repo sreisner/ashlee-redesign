@@ -54,8 +54,10 @@ exports.requireUser = function (req, res, next) {
 };
 
 exports.requireHttps = function (req, res, next) {
+  console.log(req.secure);
   if(!req.secure) {
-    return res.redirect('https://' + req.get('host') + req.url);
+    res.redirect('https://' + req.get('host') + req.url);
+  } else {
+    next();
   }
-  next();
 };
