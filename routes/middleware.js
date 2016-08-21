@@ -54,8 +54,8 @@ exports.requireUser = function (req, res, next) {
 };
 
 exports.requireHttps = function (req, res, next) {
-  console.log(req.get('x-forwarded-proto'));
-  if(!req.secure) {
+  var protocol = req.get('x-forwarded-proto');
+  if(protocol != 'https') {
     res.redirect('https://' + req.get('host') + req.url);
   } else {
     next();
