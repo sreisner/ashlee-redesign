@@ -34,7 +34,9 @@ var routes = {
 
 // Setup Route Bindings
 exports = module.exports = function (app) {
-  app.use(middleware.requireHttps);
+  if (app.get('env') != 'development') {
+    app.use(middleware.requireHttps);
+  }
 
 	// Views
 	app.get('/', routes.views.index);
