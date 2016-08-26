@@ -10,7 +10,7 @@ var About = new keystone.List('About', {
 });
 
 About.add({
-  text: { type: Types.Textarea, required: true, initial: true },
+  text: { type: Types.Html, required: true, initial: true },
   image: { type: Types.CloudinaryImage }
 });
 
