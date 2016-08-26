@@ -51,6 +51,7 @@
 @media (min-width: 1200px) {
   .about {
     display: flex;
+    align-items: center;
   }
 
   .about .left {
