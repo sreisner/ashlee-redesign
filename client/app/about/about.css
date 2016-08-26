@@ -2,6 +2,8 @@
   font-family: 'Poiret One';
   font-weight: lighter;
   color: #EEE;
+  font-size: 2.5rem;
+  line-height: 1.5em;
 }
 
 .about .left {
@@ -17,11 +19,6 @@
   border-radius: 3px;
 }
 
-.about .about-me {
-  font-size: 2.5rem;
-  line-height: 1.5em;
-}
-
 .about .social {
   position: relative;
   padding: 25px 0;
@@ -33,7 +30,7 @@
   padding-bottom: 25px;
   font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
   font-weight: 100;
-  color: #FFF;
+  color: #CCC;
 }
 
 .about .social .links {
