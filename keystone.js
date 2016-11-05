@@ -13,12 +13,13 @@ keystone.init({
 	'views': 'templates/views',
 	'view engine': 'jade',
 
-	'auto update': true,
+	'auto update': false,
 	'session': true,
 	'auth': true,
 	'user model': 'User',
-  'mongo': process.env.MONGODB_URI,
-  'cloudinary config': process.env.CLOUDINARY_SECRET
+    'mongo': process.env.MONGODB_URI,
+    'cloudinary config': process.env.CLOUDINARY_SECRET,
+    'cookie secret': process.env.COOKIE_SECRET
 });
 keystone.import('models');
 
