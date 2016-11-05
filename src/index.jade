@@ -1,0 +1,18 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title AshleeNoel
+    link(rel="stylesheet", href="site.min.css")
+  body
+    include ./landing/landing.jade
+    include ./art/art.jade
+    include ./modal/modal.jade
+    include ./about/about.jade
+    include ./nav/nav.jade
+    
+    script(src="site.min.js")
+    script(src="https://use.typekit.net/rni7sqf.js")
+    script.
+      try{Typekit.load({ async: true });}catch(e){}

@@ -1,21 +1,12 @@
-/**
- * This file contains the common middleware used by your routes.
- *
- * Extend or replace these functions as your application requires.
- *
- * This structure is not enforced, and just a starting point. If
- * you have more middleware you may want to group it as separate
- * modules in your project's /lib directory.
- */
-var _ = require('underscore');
+var _ = require('lodash');
+var keystone = require('keystone');
+var Art = keystone.list('Art');
+var cloudinary = require('./util/cloudinary');
+var uiStrings = require('./util/uiStrings');
 
 
 /**
 	Initialises the standard view locals
-
-	The included layout depends on the navLinks array to generate
-	the navigation in the header, you may wish to change this array
-	or replace it with your own templates / logic.
 */
 exports.initLocals = function (req, res, next) {
 	res.locals.navLinks = [
@@ -36,7 +27,7 @@ exports.flashMessages = function (req, res, next) {
 		warning: req.flash('warning'),
 		error: req.flash('error'),
 	};
-	res.locals.messages = _.any(flashMessages, function (msgs) { return msgs.length; }) ? flashMessages : false;
+	res.locals.messages = _.some(flashMessages, function (msgs) { return msgs.length; }) ? flashMessages : false;
 	next();
 };
 
@@ -53,11 +44,15 @@ exports.requireUser = function (req, res, next) {
 	}
 };
 
-exports.requireHttps = function (req, res, next) {
-  var protocol = req.get('x-forwarded-proto');
-  if(protocol != 'https') {
-    res.redirect('https://' + req.get('host') + req.url);
-  } else {
+exports.getArt = function (req, res, next) {
+  Art.model.find().exec(function(error, art) {
+    res.locals.art = art.map(function(artwork) {
+      artwork.image.lowResUrl = cloudinary.getLowResImageUrl(artwork.image.url);
+      artwork.image.highResUrl = cloudinary.getHighResImageUrl(artwork.image.url);
+      artwork.dimensionsString = uiStrings.getDimensionsString(artwork);
+      return artwork;
+    });
+
     next();
-  }
-};
+  });
+}

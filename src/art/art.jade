@@ -1,0 +1,28 @@
+mixin image(artwork)
+  div(class="frame",
+      data-high-res-url='#{artwork.image.highResUrl}',
+      data-low-res-url='#{artwork.image.lowResUrl}',
+      data-width='#{artwork.image.width}',
+      data-height='#{artwork.image.height}',
+      onclick="showModal(this)")
+    img(src="#{artwork.image.lowResUrl}")
+    div(class="metadata")
+      div(class="title") #{artwork.title}
+      div(class="bottom")
+        div(class="medium") #{artwork.medium}
+        div(class="dimensions") #{artwork.dimensionsString}
+section(id="art")
+  div(class="gallery")
+    div(class="container-fluid")
+      div(class="col-md-4 column")
+        each artwork, i in art
+          if i % 3 === 0
+            +image(artwork)
+      div(class="col-md-4 column")
+        each artwork, i in art
+          if i % 3 === 1
+            +image(artwork)
+      div(class="col-md-4 column")
+        each artwork, i in art
+          if i % 3 === 2
+            +image(artwork)

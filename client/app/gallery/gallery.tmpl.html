@@ -1,9 +1,0 @@
-<div class="gallery">
-  <image-preview ng-repeat="item in art | orderBy: 'sortOrder'"
-                 ng-click="vm.showModal(item)"
-                 url="{{vm.getPreviewUrl(item.image.secure_url)}}"
-                 preview-position="{{item.previewPosition}}"
-                 hover-zoom-scale="1.1"
-                 hover-zoom-speed="0.3"
-                 hover-zoom-function="ease"></image-preview>
-</div>
