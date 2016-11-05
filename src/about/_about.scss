@@ -1,0 +1,69 @@
+#about {
+  position: relative;
+  top: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 25rem);
+  background: black;
+  background: url(http://res.cloudinary.com/ashleenoel/image/upload/q_auto,w_1200,c_fit,fl_progressive/v1477772548/15_qe5xka.jpg);
+  background-size: cover;
+  background-position: bottom center;
+  font-size: 3rem;
+  font-family: $title-font;
+  color: $rose;
+  padding: 100px;
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(#000, 0.8);
+  }
+
+  .bio {
+    position: relative;
+    border-radius: 20px;
+    font-size: 1em;
+    font-weight: 100;
+    white-space: pre-wrap;
+    font-style: italic;
+
+    .hello {
+      display: block;
+      font-weight: 800;
+      font-size: 2em;
+    }
+  }
+
+  .social {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    a {
+      padding: 0px 25px;
+      font-size: 2em;
+      color: $rose;
+      transition: 0.3s;
+      
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+  
+  @media(max-width: 1200px) {
+    width: calc(100% - 12.5rem);
+    padding: 25px;
+  }
+  
+  @media(max-width: 600px) {
+    width: 100%;
+    font-size: 2.25rem;
+  }
+}

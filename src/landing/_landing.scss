@@ -1,0 +1,56 @@
+#landing {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  background: url(http://res.cloudinary.com/ashleenoel/image/upload/q_auto,fl_progressive/v1477772547/13-final-logo_lsrivg.jpg);
+  background-position: center;
+  background-size: cover;
+  font-size: 4rem;
+  font-family: $title-font;
+
+  .title-container {
+    display: flex;
+    position: relative;
+    flex-grow: 1;
+
+    img {
+      position: relative;
+      width: 250px;
+      height: 250px;
+      top: -10px;
+      left: -10px;
+      align-self: center;
+    }
+  }
+
+  .arrow-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    text-decoration: none;
+    color: $rose;
+    text-shadow: -5px 5px 5px #111;
+
+    .arrow {
+      position: relative;
+      animation: 1s move alternate ease-out infinite;
+      line-height: 0.25em;
+      padding-bottom: 0.75em;
+    }
+  }
+}
+
+@keyframes move {
+  from {
+    top: 0;
+  }
+
+  to {
+    top: 10px;
+  }
+}

@@ -1,0 +1,190 @@
+#nav {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  right: 0;
+  top: 0;
+  width: 25rem;
+  height: 100vh;
+  background: $rose;
+  z-index: 2;
+  font-size: 3rem;
+  text-align: center;
+  font-family: $title-font;
+  transition: 0.3s right;
+
+  a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    width: 100%;
+  }
+
+  h1 {
+    display: relative;
+    padding: 0px 10px;
+    margin-bottom: 50px;
+    font-size: 2em;
+    
+    a {
+      font-family: $title-font;
+    }
+  }
+
+  .link-container {
+    position: relative;
+    width: 100%;
+    
+    .arrow-left {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-top: 1em solid transparent;
+      border-bottom: 1em solid transparent;
+      border-right: 1em solid $rose;
+      top: 0;
+      transform: translateX(-100%);
+      transition: 0.3s all;
+      visibility: visible;
+    }
+
+    ul {
+      width: 100%;
+      list-style: none;
+      text-align: center;
+      font-size: 1em;
+
+      li {
+        position: relative;
+        line-height: 2em;
+        letter-spacing: 0.3em;
+      }
+    }
+  }
+  
+  .buy-my-art {
+    position: relative;
+    font-family: $body-font;
+    line-height: 4em;
+    font-weight: 800;
+    color: $green;
+    transition: 0.3s ease-in-out all;
+    
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 0%;
+      height: 100%;
+      background: $green;
+      z-index: -1;
+      transition: 0.3s ease-in-out all;
+    }
+    
+    &::before {
+      left: 0;
+    }
+    
+    &::after {
+      right: 0;
+    }
+    
+    &:hover {
+      color: $rose;
+      
+      &::before,
+      &::after {
+        width: 50%;
+      }
+      
+    }
+  }
+  
+  .hamburger {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    top: 25px;
+    right: 25px;
+    visibility: hidden;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    background: rgba($rose, 0.5);
+    
+    div {
+      position: absolute;
+      background: black;
+      width: 50%;
+      height: 4px;
+      transition: 0.3s all;
+      opacity: 1;
+    }
+    
+    .bar1 {
+      top: calc(33% - 2px);
+    }
+    
+    .bar2 {
+      top: calc(50% - 2px);
+    }
+    
+    .bar3 {
+      top: calc(66% - 2px);
+    }
+  }
+  
+  &.active {
+    .hamburger .bar1 {
+      top: calc(50% - 2px);
+      transform: rotate(45deg);
+    }
+
+    .hamburger .bar2 {
+      opacity: 0;
+    }
+
+    .hamburger .bar3 {
+      top: calc(50% - 2px);
+      transform: rotate(-45deg);
+    }
+    
+    right: 0;
+  }
+  
+  @media(max-width: 1200px) {
+    width: 12.5rem;
+    font-size: 3rem;
+    
+    h1 {
+      font-size: 1em;
+    }
+    
+    .buy-my-art {
+      font-size: 0.75em;
+    }
+  }
+  
+  @media(max-width: 600px) {
+    width: 100%;
+    font-size: 6rem;
+    right: -100%;
+    
+    .link-container {
+      .arrow-left {
+        visibility: hidden;
+      }
+    }
+    
+    .site-link:hover {
+      background: rgba(#000, 0.5);
+    }
+    
+    .hamburger {
+      visibility: visible;
+    }
+  }
+}
